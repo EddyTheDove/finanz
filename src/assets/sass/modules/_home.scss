@@ -1,0 +1,81 @@
+
+.home-page {
+    width: 100%;
+    padding: 10px;
+
+
+    .current-month {
+        height: 30px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        width: 220px;
+        margin: 0 auto;
+        margin-top:20px;
+
+        .month {
+            font-weight: bold;
+            line-height: 20px;
+            font-size: 18px;
+            width: 150px;
+            text-transform: uppercase;
+        }
+
+        .month-nav {
+            i {
+                font-size: 30px;
+                cursor: pointer;
+            }
+
+            &.nav-left {
+                padding-right: 15px;
+            }
+            &.nav-right {
+                padding-left: 15px;
+            }
+        }
+    }
+
+    .charts {
+        margin-top: 10px;
+    }
+
+    .categories {
+        h4 {
+            margin: 0;
+            line-height: 30px;
+            vertical-align: middle;
+
+            ._dot {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .moneys {
+        text-align: center;
+        margin-top: 10px;
+
+        h5 {
+            color: $color-teal;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: bold;
+
+            &.red {color: red}
+            &.green {color: $color-green}
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: $color-primary;
+        }
+    }
+
+}
