@@ -1,7 +1,7 @@
 
 .home-page {
     width: 100%;
-    padding: 10px;
+    padding: 0 10px;
 
 
     .current-month {
@@ -11,7 +11,7 @@
         align-items: center;
         width: 220px;
         margin: 0 auto;
-        margin-top:20px;
+        margin-top: 60px;
 
         .month {
             font-weight: bold;
@@ -45,10 +45,13 @@
             margin: 0;
             line-height: 30px;
             vertical-align: middle;
+            font-size: 16px;
 
             ._dot {
                 margin-top: 10px;
             }
+
+            &.bold { font-weight: bold }
         }
     }
 
@@ -75,6 +78,48 @@
             font-size: 24px;
             font-weight: bold;
             color: $color-primary;
+        }
+    },
+
+    .entries {
+        font-size: 15px;
+
+        .entry {
+            cursor: pointer;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
+
+            .category {
+                font-weight: 600;
+            }
+
+            .sub {
+                color: $color-teal;
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+            .date {
+                font-size: 15px;
+            }
+
+            .expanded {
+                background: #e1e1e1;
+                width: 100%;
+                padding: 10px;
+            }
+
+            .amount {
+                font-weight: 600;
+                color: $color-greener;
+                text-align: right;
+                font-family: Gudea, sans-serif;
+                font-size: 15px;
+            }
+
+            &.expense {
+                .amount { color: $color-red }
+            }
         }
     }
 

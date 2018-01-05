@@ -88,6 +88,27 @@ a.btn {
   @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 }
 
+.btn-blue {
+     @include button-variant($btn-primary-color, $color-blue-presumi, $color-blue-presumi);
+}
+.btn-white {
+     @include button-variant($color-darker, $color-white, $color-white);
+}
+.btn-dark {
+    @include button-variant($color-white, $color-dark, $color-darker);
+}
+.btn-greener {
+    @include button-variant($color-white, $color-greener, $color-greener);
+}
+
+.btn-orange {
+    @include button-variant($color-white, $color-orange, $color-orange);
+}
+
+.btn-red {
+    @include button-variant($color-white, $color-red, $color-red);
+}
+
 
 // Link buttons
 // -------------------------

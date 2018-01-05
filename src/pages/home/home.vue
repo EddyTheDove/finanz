@@ -1,132 +1,109 @@
 <template lang="html">
     <div class="page has-menu home-page">
-        <Menu>Monthly Report</Menu>
+        <Menu>Finanz</Menu>
 
-        <div class="current-month">
-            <span class="month-nav nav-left">
-                  <i class="ion-ios-arrow-back"></i>
-            </span>
-
-            <span class="month">November 2017</span>
-            <!-- <span class="month">December 2017</span> -->
-
-            <span class="month-nav nav-right">
-                  <i class="ion-ios-arrow-forward"></i>
-            </span>
-        </div>
-
-
-
+        <div class="mt-50"></div>
+        
         <div class="moneys">
             <div class="row">
-                <div class="col-xs-3">
+                <div class="col-xs-4">
                     <div class="medium">
                         <h4 class="green">{{ income | currency }}</h4>
-                        <h5>Income</h5>
+                        <h4 class="red">-{{ expenses | currency }}</h4>
                     </div>
                 </div>
 
-                <div class="col-xs-6">
-                    <div class="large">
-                        <h3>{{ totalExpenses | currency }}</h3>
+                <div class="col-xs-8">
+                    <div class="large text-right">
                         <h5>Balance</h5>
-                    </div>
-                </div>
-
-                <div class="col-xs-3">
-                    <div class="medium">
-                        <h4 class="red">{{ total | currency }}</h4>
-                        <h5>Expenses</h5>
+                        <h3 class="no-margin">{{ total | currency }}</h3>
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <div class="charts">
-            <div id="chart"></div>
+        <div class="entries mt-20">
+            <Entry v-for="e in entries" :entry="e" :key="e.id"></Entry>
         </div>
 
-
-        <div class="categories mt-20 pb-40">
-            <div class="_block shadowed pointer" v-for="c in categories">
-                <div class="_block-container">
-                    <h4>
-                        <div class="_dot" :style="'background-color:' + c.color"></div>
-                        {{ c.name }}
-                        <span class="bold pull-right">{{ c.amount | currency }}</span>
-                    </h4>
-                </div>
-            </div>
+        <div class="mt-40 text-center">
+            <button  class="btn btn-info btn-lg elevated w-200">Load More</button>
         </div>
+
     </div>
 </template>
 
 <script>
-import c3 from 'c3'
-
+import Entry from './entry'
 export default {
     name: 'home-page',
+    components: { Entry },
+
     data () {
         return {
             pie: {},
-            income: 3000,
-            categories: [
-                { name: 'Car', amount: 450.00, color: '#f00'},
-                { name: 'Bills', amount: 500.87, color: '#f80'},
-                { name: 'Medical', amount: 60.99, color: '#08c'},
-                { name: 'House', amount: 220.00, color: '#666'},
-                { name: 'Miscellaneous', amount: 70.00, color: '#999'}
-            ]
+            income: 92000.00,
+            expenses: 87456.45,
+            entries: []
         }
     },
 
     mounted () {
-        this.buildPie()
+        this.getEntries()
     },
 
     computed: {
-        totalExpenses () {
-            return this.categories.reduce((a, b) => {
-                return a + b.amount
-            }, 0)
-        },
-
         total () {
-            return this.income - this.totalExpenses
+            return this.income - this.expenses
         }
     },
 
     methods: {
-        buildPie () {
-            let colours = {}
-            let columns = []
-
-            this.categories.forEach(c => {
-                colours[c.name] = c.color
-                columns.push([c.name, c.amount])
-            })
-
-            this.pie = c3.generate({
-                bindto: '#chart',
-                data: {
-                    columns: columns,
-                    colors: colours,
-                    type : 'donut',
-                    onclick: function (d, i) { console.log("onclick", d, i); },
-                    onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-                    onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+        getEntries () {
+            this.entries = [
+                {
+                    id:1,
+                    description: "Mama's deposit",
+                    type: 'income',
+                    amount: 3000.00,
+                    date: '23/12/2017',
                 },
-
-                donut: {
-                    title: "Expenses breakdown",
-                    // label: {
-                    //     format: function (value, ratio, id) {
-                    //         return d3.format('$')(value);
-                    //     }
-                    // }
+                {
+                    id:2,
+                    category: 'Car',
+                    sub: 'Fuel',
+                    description: 'Fuel to Camden',
+                    amount: 44.29,
+                    type: 'expense',
+                    date: '19/12/2017'
+                },
+                {
+                    id:3,
+                    category: 'House',
+                    sub: 'Internet',
+                    description: 'November bill that I found money in the street in Central Park when coming back from the lecture',
+                    amount: 44.29,
+                    type: 'expense',
+                    date: '13/12/2017'
+                },
+                {
+                    id:4,
+                    description: "Eddy's Food",
+                    type: 'income',
+                    amount: 99.99,
+                    date: '11/12/2017'
+                },
+                {
+                    id:5,
+                    category: 'House',
+                    sub: 'Food',
+                    description: 'Uber Eats',
+                    amount: 29.40,
+                    type: 'expense',
+                    date: '11/12/2017'
                 }
-            })
+            ]
         }
     }
 }

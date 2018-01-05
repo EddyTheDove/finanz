@@ -1,5 +1,6 @@
 <template>
     <section>
+        <Sidebar></Sidebar>
         <transition
             :duration="100"
             name="custom-classes-transition"

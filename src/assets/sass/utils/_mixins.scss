@@ -134,9 +134,9 @@ $min: 25;
 }
 
 @mixin box-shadow($size) {
-    -moz-box-shadow:     0 2px rgba(0,0,0,$size);
-    -webkit-box-shadow:  0 2px rgba(0,0,0,$size);
-    box-shadow:          0 2px rgba(0,0,0,$size);
+    -moz-box-shadow:     0 2px 4px rgba(0,0,0,$size);
+    -webkit-box-shadow:  0 2px 4px rgba(0,0,0,$size);
+    box-shadow:          0 2px 4px rgba(0,0,0,$size);
 }
 
 
