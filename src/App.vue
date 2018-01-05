@@ -10,24 +10,13 @@
         </transition>
 
         <IncomeModal></IncomeModal>
+        <expenseModal></expenseModal>
     </section>
 </template>
 
 <script>
 export default {
-    name: 'app',
-    data () {
-        return {
-            msg: 'Welcome to Your Vue.js App'
-        }
-    },
-
-    methods: {
-        closeSidebar () {
-            console.log('Closing the sidebar...')
-            this.$store.commit('sidebar/SIDEBAR_CLOSE')
-        }
-    }
+    name: 'app'
 }
 </script>
 

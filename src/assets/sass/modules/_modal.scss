@@ -24,6 +24,8 @@
 
     ._modal-header {
         width: 100%;
+        padding-top: 10px;
+        position: relative;
 
         ._close {
             position: absolute;
@@ -39,5 +41,9 @@
             font-weight: bold;
             text-align: center;
         }
+    }
+
+    ._modal-body {
+        margin-top: 20px;
     }
 }

@@ -20,12 +20,11 @@ export default {
 
     methods: {
         addIncome () {
-            console.log('Adding income...')
             window.eventBus.$emit('incomeModal:open')
         },
 
         addExpense () {
-            console.log('Adding expense...')
+            window.eventBus.$emit('expenseModal:open')
         }
     }
 }

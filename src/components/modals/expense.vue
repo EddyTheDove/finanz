@@ -7,8 +7,8 @@
                 </div>
 
                 <div class="_heading">
-                    <i class="ion-arrow-graph-up-right"></i>
-                    Add Income
+                    <i class="ion-arrow-graph-down-right"></i>
+                    Add Expense
                 </div>
             </div>
 
@@ -32,8 +32,8 @@
                     </div>
 
                     <div class="mt-40 text-center">
-                        <button type="submit" class="btn btn-lg btn-info elevated">
-                            Save Income
+                        <button type="submit" class="btn btn-lg btn-info elevated round">
+                            Save Expense
                         </button>
                     </div>
                 </form>
@@ -46,12 +46,37 @@
 import modalMixins from './mixins'
 
 export default {
-    name: 'incomeModal',
+    name: 'expenseModal',
     mixins: [modalMixins],
 
     mounted () {
-        window.eventBus.$on('incomeModal:open', () => this.open())
-        window.eventBus.$on('incomeModal:close', () => this.close())
+        window.eventBus.$on('expenseModal:open', () => this.open())
+        window.eventBus.$on('expenseModal:close', () => this.close())
+    },
+
+    methods: {
+        getCategories () {
+            this.categories = [
+                {
+                    id: 1,
+                    name: 'Car',
+                    subs: [
+                        { id:2, name: 'Fuel' },
+                        { id:3, name: 'Insurance' },
+                        { id:4, name: 'Wash' }
+                    ]
+                },
+
+                {
+                    id: 2,
+                    name: 'Bills',
+                    subs: [
+                        { id: 5, name: 'Rent' },
+                        { id: 6, name: 'Electricity' }
+                    ]
+                }
+            ]
+        }
     }
 }
 </script>

@@ -1,0 +1,42 @@
+
+._form {
+    font-family: 'Source Sans Pro';
+
+    ._form-group {
+        display: block;
+        margin-bottom: 10px;
+
+        label {
+            display: block;
+            color: $color-teal;
+        }
+    }
+
+
+    ._form-text,
+    ._form-input {
+        width: 100%;
+        border-radius: 2px;
+        border: 2px solid #dbe7f2;
+        box-shadow: none;
+        color: #444;
+        font-size: 17px;
+        background-color: $body-bg;
+
+        &.input-white { background-color: white }
+        &.has-error { border: 2px solid $color-red }
+        &:focus {
+            border: 2px solid #acc0d3;
+            outline: none;
+        }
+    }
+
+    ._form-input {
+        height: 45px;
+        padding: 0 10px;
+    }
+
+    ._form-text {
+        padding: 10px;
+    }
+}

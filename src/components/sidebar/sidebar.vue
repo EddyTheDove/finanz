@@ -6,7 +6,7 @@
 
         <ul class="_slideout-menu">
             <li v-for="m in menu">
-                <a href @click="openLink(m)">{{ m.label }}</a>
+                <a @click="openLink(m)">{{ m.label }}</a>
             </li>
         </ul>
 
