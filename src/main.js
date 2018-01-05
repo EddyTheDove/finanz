@@ -1,4 +1,5 @@
 window.$ = window.jQuery = require('jquery')
+window.moment = require('moment')
 
 import Vue from 'vue'
 import App from './App.vue'
@@ -20,6 +21,10 @@ Vue.component('Footer', Footer)
 Vue.component('Sidebar', Sidebar)
 Vue.component('IncomeModal', IncomeModal)
 Vue.component('expenseModal', expenseModal)
+
+// Plugins
+import VueFlatpickr from 'vue-flatpickr-component'
+Vue.component('flat-pickr', VueFlatpickr)
 
 // Event manager
 window.eventBus = new Vue()

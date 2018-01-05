@@ -15,7 +15,34 @@
 
             <div class="_modal-body">
                 <form class="_form" @submit.prevent>
-                    <div class="_form-group">
+
+                    <flat-pickr
+                        v-model="ghost.date"
+                        class="_form-invisible bold blue uppercase"
+                        :config="flatpickrOptions">
+                    </flat-pickr>
+
+                    <div class="row mt-10">
+                        <div class="col-xs-6">
+                            <div class="_form-group">
+                                <select class="_form-select" v-model="ghost.category">
+                                    <option value="">Category</option>
+                                    <option v-for="c in categories" :value="c.id">{{ c.name }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="_form-group">
+                                <select class="_form-select">
+                                    <option value="">Sub Category</option>
+                                    <option v-for="c in subs" :value="c.id">{{ c.name }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="_form-group mt-10">
                         <label for="amount">Amount</label>
                         <input type="number" step="0.01"
                             class="_form-input"
@@ -52,6 +79,21 @@ export default {
     mounted () {
         window.eventBus.$on('expenseModal:open', () => this.open())
         window.eventBus.$on('expenseModal:close', () => this.close())
+        this.getCategories()
+    },
+
+    watch: {
+        'ghost.category': function (val) {
+            if (val === '') {
+                this.subs = []
+            } else {
+                this.categories.forEach(c => {
+                    if (this.ghost.category === c.id) {
+                        this.subs = c.subs
+                    }
+                })
+            }
+        }
     },
 
     methods: {

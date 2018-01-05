@@ -7,6 +7,8 @@
 @import "utils/default";
 @import "utils/form";
 
+@import "plugins/flatpickr";
+
 @include paddingAll;
 @include paddingTop;
 @include paddingBottom;

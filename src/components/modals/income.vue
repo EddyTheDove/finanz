@@ -15,7 +15,14 @@
 
             <div class="_modal-body">
                 <form class="_form" @submit.prevent>
-                    <div class="_form-group">
+
+                    <flat-pickr
+                        v-model="ghost.date"
+                        class="_form-invisible bold blue uppercase"
+                        :config="flatpickrOptions">
+                    </flat-pickr>
+
+                    <div class="_form-group mt-10">
                         <label for="amount">Amount</label>
                         <input type="number" step="0.01"
                             class="_form-input"
