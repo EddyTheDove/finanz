@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="page has-menu home-page">
+    <div class="page has-menu has-footer home-page">
         <Menu>Monthly Report</Menu>
 
         <div class="current-month">
@@ -48,7 +48,7 @@
         </div>
 
 
-        <div class="categories mt-20 pb-40">
+        <div class="categories mt-20">
             <div class="_block shadowed pointer" v-for="c in categories">
                 <div class="_block-container">
                     <h4>
@@ -59,6 +59,8 @@
                 </div>
             </div>
         </div>
+
+        <Footer></Footer>
     </div>
 </template>
 

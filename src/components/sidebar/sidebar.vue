@@ -20,7 +20,8 @@ export default {
     data: () => ({
         menu: [
             { label: 'Home', name: 'home', url: '/' },
-            { label: 'Monthly Report', name: 'monthly', url: '/monthly' }
+            { label: 'Monthly Report', name: 'monthly', url: '/monthly' },
+            { label: 'My Account', name: 'account', url: '/account' }
         ]
     }),
 
