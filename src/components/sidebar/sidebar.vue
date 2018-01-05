@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="_slideout" :class="{ isOpen: isOpen }">
-        <div class="_slideout-brand">
-            Menu
+        <div class="_slideout-brand" @click="close()">
+            Close
         </div>
 
         <ul class="_slideout-menu">
@@ -18,7 +18,6 @@ export default {
     name: 'sidebar',
 
     data: () => ({
-        isOpen: false,
         menu: [
             { label: 'Home', name: 'home', url: '/' },
             { label: 'Monthly Report', name: 'monthly', url: '/monthly' }
@@ -31,23 +30,23 @@ export default {
         window.eventBus.$on('sidebar:toggle', () => this.toggle())
     },
 
+    computed: {
+        isOpen () {
+            return this.$store.state.sidebar.isOpen
+        }
+    },
+
     methods: {
         open () {
-            this.openerText = 'Close';
-            this.isOpen = true;
+            this.$store.commit('sidebar/SIDEBAR_OPEN')
         },
 
         close () {
-            this.openerText = 'Open';
-            this.isOpen = false;
+            this.$store.commit('sidebar/SIDEBAR_CLOSE')
         },
 
         toggle () {
-            if (this.isOpen) {
-                this.close();
-            } else {
-                this.open();
-            }
+            this.$store.commit('sidebar/SIDEBAR_TOGGLE')
         },
 
         openLink (link) {
