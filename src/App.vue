@@ -1,7 +1,7 @@
 <template>
     <section>
         <Sidebar></Sidebar>
-        
+
         <transition
             :duration="100"
             name="custom-classes-transition"
@@ -9,6 +9,7 @@
             <router-view></router-view>
         </transition>
 
+        <IncomeModal></IncomeModal>
     </section>
 </template>
 

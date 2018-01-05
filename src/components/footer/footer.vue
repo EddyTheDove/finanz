@@ -14,12 +14,14 @@
 </template>
 
 <script>
+
 export default {
     name: 'mainFooter',
 
     methods: {
         addIncome () {
             console.log('Adding income...')
+            window.eventBus.$emit('incomeModal:open')
         },
 
         addExpense () {

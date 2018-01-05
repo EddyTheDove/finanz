@@ -22,7 +22,7 @@ export default {
 
     methods: {
         toggleSidebar () {
-            window.eventBus.$emit('sidebar:toggle')
+            this.$store.commit('sidebar/SIDEBAR_TOGGLE')
         }
     }
 }

@@ -24,12 +24,6 @@ export default {
         ]
     }),
 
-    mounted () {
-        window.eventBus.$on('sidebar:open', () => this.open())
-        window.eventBus.$on('sidebar:close', () => this.close())
-        window.eventBus.$on('sidebar:toggle', () => this.toggle())
-    },
-
     computed: {
         isOpen () {
             return this.$store.state.sidebar.isOpen
