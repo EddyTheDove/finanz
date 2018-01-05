@@ -1,9 +1,7 @@
 <template lang="html">
-    <div class="page has-menu home-page">
+    <div class="page has-menu has-footer home-page">
         <Menu>Finanz</Menu>
 
-        <div class="mt-50"></div>
-        
         <div class="moneys">
             <div class="row">
                 <div class="col-xs-4">
@@ -31,6 +29,7 @@
             <button  class="btn btn-info btn-lg elevated w-200">Load More</button>
         </div>
 
+        <Footer></Footer>
     </div>
 </template>
 
