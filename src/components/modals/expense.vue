@@ -34,7 +34,7 @@
 
                         <div class="col-xs-6">
                             <div class="_form-group">
-                                <select class="_form-select">
+                                <select class="_form-select" v-model="ghost.sub">
                                     <option value="">Sub Category</option>
                                     <option v-for="c in subs" :value="c.id">{{ c.name }}</option>
                                 </select>
@@ -84,6 +84,8 @@ export default {
 
     watch: {
         'ghost.category': function (val) {
+            this.ghost.sub = ''
+
             if (val === '') {
                 this.subs = []
             } else {
